@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device,initial-scale=1">
+			<title>Quick Quiz</title>
+			<link rel="stylesheet" href="./css/style.css">
+		
+		
+			<script language="javascript" src="javascript/jquery-3.2.1.min.js"></script>
+
+	</head>
+
+  <body>
+	<div class="wrapper">
+	<div class="container">
+    
+    <div class="quick-quiz"> 
+		<i><p>Quick <span>Quiz</span></p></i>
+    </div>   
+        
+
+	<div class="topnav" id="myTopnav">
+		<!--<a href=".\home.html" class="active">Home</a>-->
+		<a href=".\index.html" class="active">HOME</a>
+		<a href=".\about.html">ABOUT</a>
+		<a href=".\register.html">REGISTER/LOGIN</a>
+		<a href=".\contactus.html">CONTACT US</a>
+		<a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+	</div>
+
+
+	<script>
+		function myFunction() 
+		{
+			var x = document.getElementById("myTopnav");
+				if (x.className === "topnav") 
+				{
+					x.className += " responsive";
+				} 
+				else 
+				{
+					x.className = "topnav";
+				}
+		}
+	</script>
+
+
+		<section id="main">
+		<div class="container">
+        <article id="main-col">
+			<h1 class="page-title">Contact Us</h1>
+            <p class="dark"> QuickQuiz is a form of game or mind sport, in which the players (as individuals or in teams) attempt to answer questions correctly. It is a game to test your knowledge about a certain subject</p>
+            <p> In some countries, a quiz is also a brief assessment used in education and similar fields to measure growth in knowledge, abilities, and/or skills.</p>
+        </article>
+		<div class="about-us-banner">
+			<img src="img/dice.jpg">
+		</div>
+			<aside id="sidebar">
+		<div class="dark">
+            <h2>Developers</h2>
+            <p><b>Tanmay Salunkhe<b></p>
+            <p>Jigar Patel</p>
+            <p>Samuel Tipson</p>
+        </div>
+
+        </aside>
+		</div>
+	    </section>
+
+    <footer>
+      <p><center>QuickQuiz, Copyright &copy; 2017 <center></p>
+	</footer>
+  </body>
+</html>

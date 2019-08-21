@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device,initial-scale=1">
+			<title>Quick Quiz</title>
+			<link rel="stylesheet" href="./css/style1.css">
+    
+		<script>
+	 
+		var answers = ["A","A","D","B","B"],
+		tot = answers.length;
+
+		function getCheckedValue( radioName )
+		{
+			var radios = document.getElementsByName( radioName ); // Get radio group by-name
+			for(var y=0; y<radios.length; y++)
+			if(radios[y].checked) return radios[y].value; // return the checked value
+		}
+
+		function getScore()
+		{
+			var score = 0;
+			for (var i=0; i<tot; i++)
+			if(getCheckedValue("question"+i)===answers[i]) score += 1; // increment only
+			return score;
+		}
+
+
+		function validateoption()
+		{
+				var qs0 = document.getElementsByName("question0");
+				var qs1 = document.getElementsByName("question0");
+				var qs2 = document.getElementsByName("question0");
+				var qs3 = document.getElementsByName("question0");
+				var qs4 = document.getElementsByName("question0");
+				if ((qs0[0].checked || qs0[1].checked || qs0[2].checked || qs0[3].checked)&&
+					(qs1[0].checked || qs1[1].checked || qs1[2].checked || qs1[3].checked)&&
+					(qs2[0].checked || qs2[1].checked || qs2[2].checked || qs2[3].checked)&&
+					(qs3[0].checked || qs3[1].checked || qs3[2].checked || qs3[3].checked)&&
+					(qs4[0].checked || qs4[1].checked || qs4[2].checked || qs4[3].checked)) 
+					{
+						returnScore();
+
+					}
+				else 
+				{
+					alert ("Attempt all the questions!")
+				}
+
+
+				return false;
+		}
+		function returnScore()
+		{
+			alert("Your score is "+ getScore() +"/"+ tot);
+		}
+
+
+    </script>
+	<script language="javascript" src="javascript/jquery-3.2.1.min.js"></script>
+
+	</head>
+
+  <body>
+	<div class="wrapper">
+	<div class="container">
+    
+		<h1><i>SELECT CATEGORY</i></h1>
+        
+
+	<div class="topnav" id="myTopnav">
+		<!--<a href=".\home.html" class="active">Home</a>-->
+		<a href=".\index.html" class="active">HOME</a>
+		<a href=".\index0.html">CARS</a>
+		<a href=".\index1.html">PLAYSTATION</a>
+		<a href=".\index2.html">iPHONE</a>
+		<a href=".\index3.html">TECHNOLOGY</a>
+		<a href=".\register.html">LOGOUT</a>
+		<a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+	</div>
+
+
+	<script>
+		function myFunction() 
+		{
+			var x = document.getElementById("myTopnav");
+				if (x.className === "topnav") 
+				{
+					x.className += " responsive";
+				} 
+				else 
+				{
+					x.className = "topnav";
+				}
+		}
+	</script>
+<br>
+<br>
+
+  <div class="banner">
+		<img src="img\technology1.jpg" alt="PlayStation Symbol" title="">
+		<div class="banner">
+  <h1><i>Technology-Connecting World.</i></h1>
+  <h3>Let's Start...</h3>
+  <p>1. Which web browser have most users?</p>
+	<form>
+		<input type="radio" name="question0" value="A"> Chrome<br>
+		<input type="radio" name="question0" value="B"> Internet Explorer <br>
+		<input type="radio" name="question0" value="C"> Opera <br>
+		<input type="radio" name="question0" value="D"> Fire Fox <br>
+	</form><br><br>
+	<p>2. Which is the largest Software company?</p>
+	<form>
+		<input type="radio" name="question1" value="A"> Microsoft <br>
+		<input type="radio" name="question1" value="B"> Adobe <br>
+		<input type="radio" name="question1" value="C"> Autodesk <br>
+		<input type="radio" name="question1" value="D"> Oracle <br>
+	</form><br><br>
+	<p>3. Who is the father of Computer Science?</p>
+	<form>
+		<input type="radio" name="question2" value="A"> Steve Jobs <br>
+		<input type="radio" name="question2" value="B"> Bill Gates <br>
+		<input type="radio" name="question2" value="C"> Charles Babbage <br>
+		<input type="radio" name="question2" value="D"> Alan Turing <br>
+	</form><br><br>
+	<p>4. Who invented the keyboard which we are using today?<p>
+	<img src="keyboard.jpg"></img>
+	<form>
+		<input type="radio" name="question3" value="A"> Kevin Stear <br>
+		<input type="radio" name="question3" value="B"> Christopher Latham Sholes  <br>
+		<input type="radio" name="question3" value="C"> Qwerty <br>
+		<input type="radio" name="question3" value="D"> Ben Marshall <br>
+	</form><br><br>
+	<p>5. Which has the highest Graphical Processing Unit(GPU)?</p>
+	<form>
+		<input type="radio" name="question4" value="A"> Nvidia GeForce GTX 970 <br>
+		<input type="radio" name="question4" value="B"> Nvidia GeForce GTX Titan X <br>
+		<input type="radio" name="question4" value="C"> AMD Radeon R9 290 <br>
+		<input type="radio" name="question4" value="D"> AMD Radeon R9 280 <br>
+	</form><br><br>
+	<p><b> Press the button to Evaluate the scores:</b></p>
+	<form><button onclick="validateoption()">View Results</button></form>
+	
+	<footer>
+		<p>QuickQuiz, Copyright &copy; 2017 </p>
+	</footer>
+  </body>
+</html>

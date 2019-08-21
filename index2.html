@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device,initial-scale=1">
+			<title>Quick Quiz</title>
+			<link rel="stylesheet" href="./css/style1.css">
+    
+		<script>
+	 
+		var answers = ["A","A","B","B","C"],
+		tot = answers.length;
+
+		function getCheckedValue( radioName )
+		{
+			var radios = document.getElementsByName( radioName ); // Get radio group by-name
+			for(var y=0; y<radios.length; y++)
+			if(radios[y].checked) return radios[y].value; // return the checked value
+		}
+
+		function getScore()
+		{
+			var score = 0;
+			for (var i=0; i<tot; i++)
+			if(getCheckedValue("question"+i)===answers[i]) score += 1; // increment only
+			return score;
+		}
+
+
+		function validateoption()
+		{
+				var qs0 = document.getElementsByName("question0");
+				var qs1 = document.getElementsByName("question0");
+				var qs2 = document.getElementsByName("question0");
+				var qs3 = document.getElementsByName("question0");
+				var qs4 = document.getElementsByName("question0");
+				if ((qs0[0].checked || qs0[1].checked || qs0[2].checked || qs0[3].checked)&&
+					(qs1[0].checked || qs1[1].checked || qs1[2].checked || qs1[3].checked)&&
+					(qs2[0].checked || qs2[1].checked || qs2[2].checked || qs2[3].checked)&&
+					(qs3[0].checked || qs3[1].checked || qs3[2].checked || qs3[3].checked)&&
+					(qs4[0].checked || qs4[1].checked || qs4[2].checked || qs4[3].checked)) 
+					{
+						returnScore();
+
+					}
+				else 
+				{
+					alert ("Attempt all the questions!")
+				}
+
+
+				return false;
+		}
+		function returnScore()
+		{
+			alert("Your score is "+ getScore() +"/"+ tot);
+		}
+
+
+    </script>
+	<script language="javascript" src="javascript/jquery-3.2.1.min.js"></script>
+
+	</head>
+
+  <body>
+	<div class="wrapper">
+	<div class="container">
+    
+		<h1><i>SELECT CATEGORY</i></h1>
+        
+
+	<div class="topnav" id="myTopnav">
+		<!--<a href=".\home.html" class="active">Home</a>-->
+		<a href=".\index.html" class="active">HOME</a>
+		<a href=".\index0.html">CARS</a>
+		<a href=".\index1.html">PLAYSTATION</a>
+		<a href=".\index2.html">iPHONE</a>
+		<a href=".\index3.html">TECHNOLOGY</a>
+		<a href=".\register.html">LOGOUT</a>
+		<a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+	</div>
+
+
+	<script>
+		function myFunction() 
+		{
+			var x = document.getElementById("myTopnav");
+				if (x.className === "topnav") 
+				{
+					x.className += " responsive";
+				} 
+				else 
+				{
+					x.className = "topnav";
+				}
+		}
+	</script>
+<br>
+<br>
+	<div class="banner">
+		<img src="img\iphone.png" alt="PlayStation Symbol" title="">
+		<div class="banner">
+	<h1><i>Apple iPhone-Think Different.</i></h1>
+	<h2>Let's see how much you know about iPhone!</h2>
+	<h3>Here you begin....</h3>
+	<p>1. What is the name of the Operating System that powers the iPhone?</p>
+	<form>
+		<input type="radio" name="question0" value="A"> iOS<br>
+		<input type="radio" name="question0" value="B"> iPhone OS<br>
+		<input type="radio" name="question0" value="C"> OS X<br>
+		<input type="radio" name="question0" value="D"> System-on-a-chip<br>
+	</form><br><br>
+	<p>2. The operationg systems on the original iPhone wasn't called iOS. Instead it was called?</p>
+	<form>
+		<input type="radio" name="question1" value="A"> iPhone OS <br>
+		<input type="radio" name="question1" value="B"> iPhone OS X <br>
+		<input type="radio" name="question1" value="C"> OSphone <br>
+		<input type="radio" name="question1" value="D"> phoneOS <br>
+	</form><br><br>
+	<p>3. The very first iPhone hit shelves in?</p>
+	<form>
+		<input type="radio" name="question2" value="A"> 2006<br>
+		<input type="radio" name="question2" value="B"> 2007 <br>
+		<input type="radio" name="question2" value="C"> 2008<br>
+		<input type="radio" name="question2" value="D"> 2009<br>
+	</form><br><br>
+	<p>4. Siri can speak 17 languages. Which language does Siri not support?<p>
+	<form>
+		<input type="radio" name="question3" value="A"> Russian <br>
+		<input type="radio" name="question3" value="B"> Ukrainian  <br>
+		<input type="radio" name="question3" value="C"> Korean <br>
+		<input type="radio" name="question3" value="D"> Norwegian <br>
+	</form><br><br>
+	<p>5. What word did Apple invent to promote their iPad with a Retina Display in 2012?</p>
+	<form>
+		<input type="radio" name="question4" value="A"> Resoltastic <br>
+		<input type="radio" name="question4" value="B"> Resoltifiying <br>
+		<input type="radio" name="question4" value="C"> Resolutionary <br>
+		<input type="radio" name="question4" value="D"> Resoleriffic <br>
+	</form><br><br>
+	<p><b> Press the button to Evaluate the scores:</b></p>
+	<form><button onclick="validateoption()">View Results</button></form>
+	
+	<footer>
+		<p>QuickQuiz, Copyright &copy; 2017 </p>
+	</footer>
+  </body>
+ </html>

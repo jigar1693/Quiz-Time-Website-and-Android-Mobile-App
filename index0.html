@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device,initial-scale=1">
+		<title>Quick Quiz</title>
+		<link rel="stylesheet" href="./css/style1.css">
+    
+	<script>
+	 
+		var answers = ["A","D","C","B","B"],
+		tot = answers.length;
+
+		function getCheckedValue( radioName )
+		{
+			var radios = document.getElementsByName( radioName ); // Get radio group by-name
+			for(var y=0; y<radios.length; y++)
+			if(radios[y].checked) return radios[y].value; // return the checked value
+		}
+
+		function getScore()
+		{
+			var score = 0;
+			for (var i=0; i<tot; i++)
+			if(getCheckedValue("question"+i)===answers[i]) score += 1; // increment only
+			return score;
+		}
+
+
+		function validateoption()
+		{
+				var qs0 = document.getElementsByName("question0");
+				var qs1 = document.getElementsByName("question0");
+				var qs2 = document.getElementsByName("question0");
+				var qs3 = document.getElementsByName("question0");
+				var qs4 = document.getElementsByName("question0");
+				if ((qs0[0].checked || qs0[1].checked || qs0[2].checked || qs0[3].checked)&&
+					(qs1[0].checked || qs1[1].checked || qs1[2].checked || qs1[3].checked)&&
+					(qs2[0].checked || qs2[1].checked || qs2[2].checked || qs2[3].checked)&&
+					(qs3[0].checked || qs3[1].checked || qs3[2].checked || qs3[3].checked)&&
+					(qs4[0].checked || qs4[1].checked || qs4[2].checked || qs4[3].checked)) 
+					{
+						returnScore();
+
+					}
+				else 
+				{
+					alert ("Attempt all the questions!")
+				}
+
+
+				return false;
+		}
+		function returnScore()
+		{
+			alert("Your score is "+ getScore() +"/"+ tot);
+		}
+
+
+    </script>
+	<script language="javascript" src="javascript/jquery-3.2.1.min.js"></script>
+
+	</head>
+
+  <body>
+	<div class="wrapper">
+	<div class="container">
+    
+    <h1><i>SELECT CATEGORY</i></h1>
+        
+
+	<div class="topnav" id="myTopnav">
+	<!--<a href=".\home.html" class="active">Home</a>-->
+		<a href=".\index.html" class="active">HOME</a>
+		<a href=".\index0.html">CARS</a>
+		<a href=".\index1.html">PLAYSTATION</a>
+		<a href=".\index2.html">iPHONE</a>
+		<a href=".\index3.html">TECHNOLOGY</a>
+		<a href=".\register.html">LOGOUT</a>
+		<a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+	</div>
+
+
+	<script>
+		function myFunction() 
+		{
+			var x = document.getElementById("myTopnav");
+				if (x.className === "topnav") 
+				{
+					x.className += " responsive";
+				} 
+				else 
+				{
+					x.className = "topnav";
+				}
+		}
+	</script>
+<br>
+<br>
+
+	<div class="banner">
+		<img src="img\car.jpg" alt="PlayStation Symbol" title="">
+	</div>
+		<h2><i>Cars-Driving Matters....!</i></h2>
+		<p>1. Volkswagen is a car manufacturer from which country?</p>
+		<img src="Logo.png"> <br>
+	<form>
+		<input type="radio" name="question0" value="A"> Germany<br>
+		<input type="radio" name="question0" value="B"> USA<br>
+		<input type="radio" name="question0" value="C"> Austria<br>
+		<input type="radio" name="question0" value="D"> Italy<br>
+	</form><br><br>
+	<p>2. Buick, Chevrolet, and Cadillac are divisions of which automobile company?</p>
+	<form>
+		<input type="radio" name="question1" value="A"> Ford Motor Company<br>
+		<input type="radio" name="question1" value="B"> Chrysler <br>
+		<input type="radio" name="question1" value="C"> Toyota Motor Corporation<br>
+		<input type="radio" name="question1" value="D"> General Motors Company<br>
+	</form><br><br>
+	<p>3.Which car manufacturer has produced models called Uno, Punto, Bravo and Ritmo?</p>
+	<form>
+		<input type="radio" name="question2" value="A"> Ferrari<br>
+		<input type="radio" name="question2" value="B"> Ford <br>
+		<input type="radio" name="question2" value="C"> Fiat<br>
+		<input type="radio" name="question2" value="D"> Peugeot<br>
+	</form><br><br>
+	<p>4. What are the XF, the Sodvereign and the X-Typeall makes of?</p>
+	<form>
+		<input type="radio" name="question3" value="A"> Rolls Royce<br>
+		<input type="radio" name="question3" value="B"> Jaguar <br>
+		<input type="radio" name="question3" value="C"> Daimler<br>
+		<input type="radio" name="question3" value="D"> Mitsubishi<br>
+	</form><br><br>
+	<p>5. Where is the car company Volvo from?</p>
+	<!--<img src="img\volvo.jpg" style="width:400px;height:300px;"> -->
+	<form>
+		<input type="radio" name="question4" value="A"> France <br>
+		<input type="radio" name="question4" value="B"> Sweden <br>
+		<input type="radio" name="question4" value="C"> Germany<br>
+		<input type="radio" name="question4" value="D"> Britain<br>
+	</form><br><br>
+	<p><b> Press the button to Evaluate the scores:</b></p>
+	<form><button onclick="validateoption()">View Results</button></form>
+	
+	<footer>
+		<p>QuickQuiz, Copyright &copy; 2017 </p>
+	</footer>
+	</div>
+	</div>
+  </body>
+</html>

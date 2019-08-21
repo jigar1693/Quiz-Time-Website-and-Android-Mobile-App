@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device,initial-scale=1">
+			<title>Quick Quiz</title>
+			<link rel="stylesheet" href="./css/style1.css">
+    
+		<script>
+	 
+		var answers = ["C","A","B","A","A"],
+		tot = answers.length;
+
+		function getCheckedValue( radioName )
+		{
+			var radios = document.getElementsByName( radioName ); // Get radio group by-name
+			for(var y=0; y<radios.length; y++)
+			if(radios[y].checked) return radios[y].value; // return the checked value
+		}
+
+		function getScore()
+		{
+			var score = 0;
+			for (var i=0; i<tot; i++)
+			if(getCheckedValue("question"+i)===answers[i]) score += 1; // increment only
+			return score;
+		}
+
+
+		function validateoption()
+		{
+				var qs0 = document.getElementsByName("question0");
+				var qs1 = document.getElementsByName("question0");
+				var qs2 = document.getElementsByName("question0");
+				var qs3 = document.getElementsByName("question0");
+				var qs4 = document.getElementsByName("question0");
+				if ((qs0[0].checked || qs0[1].checked || qs0[2].checked || qs0[3].checked)&&
+					(qs1[0].checked || qs1[1].checked || qs1[2].checked || qs1[3].checked)&&
+					(qs2[0].checked || qs2[1].checked || qs2[2].checked || qs2[3].checked)&&
+					(qs3[0].checked || qs3[1].checked || qs3[2].checked || qs3[3].checked)&&
+					(qs4[0].checked || qs4[1].checked || qs4[2].checked || qs4[3].checked)) 
+					{
+						returnScore();
+
+					}
+				else 
+				{
+					alert ("Attempt all the questions!")
+				}
+
+
+				return false;
+		}
+		function returnScore()
+		{
+			alert("Your score is "+ getScore() +"/"+ tot);
+		}
+
+
+    </script>
+	<script language="javascript" src="javascript/jquery-3.2.1.min.js"></script>
+
+	</head>
+
+  <body>
+	<div class="wrapper">
+	<div class="container">
+    
+		<h1><i>SELECT CATEGORY</i></h1>
+        
+
+	<div class="topnav" id="myTopnav">
+		<!--<a href=".\home.html" class="active">Home</a>-->
+		<a href=".\index.html" class="active">HOME</a>
+		<a href=".\index0.html">CARS</a>
+		<a href=".\index1.html">PLAYSTATION</a>
+		<a href=".\index2.html">iPHONE</a>
+		<a href=".\index3.html">TECHNOLOGY</a>
+		<a href=".\register.html">LOGOUT</a>
+		<a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+	</div>
+
+
+	<script>
+		function myFunction() 
+		{
+			var x = document.getElementById("myTopnav");
+				if (x.className === "topnav") 
+				{
+					x.className += " responsive";
+				} 
+				else 
+				{
+					x.className = "topnav";
+				}
+		}
+	</script>
+
+<br>
+<br>
+		<div class="banner">
+		<img src="img\playstation.png" alt="PlayStation Symbol" title="">
+		<div class="banner">
+		<h1><i>PlayStation-Never Stop Playing!</i></h1>
+		<p>1. What is the main color of the PlayStation?</p>
+		<form>
+		<input type="radio" name="question0" value="A"> Blue<br>
+		<input type="radio" name="question0" value="B"> None of these<br>
+		<input type="radio" name="question0" value="C"> Black<br>
+		<input type="radio" name="question0" value="D"> White<br>
+	</form><br><br>
+	<p>2. What is PS4's console design?</p>
+	<form>
+		<input type="radio" name="question1" value="A"> Angular <br>
+		<input type="radio" name="question1" value="B"> Spherical <br>
+		<input type="radio" name="question1" value="C"> Circular<br>
+		<input type="radio" name="question1" value="D"> Gaseous<br>
+	</form><br><br>
+	<p>3. What does the lightbar on the front of the PS4 Dualshoch 4 controller do?</p>
+	<div class="banner">
+		<img src="img\controller.jpg" alt="PlayStation Symbol" title="">
+		<div class="banner">
+	<form>
+		<input type="radio" name="question2" value="A"> Allows use as lightsaber <br>
+		<input type="radio" name="question2" value="B"> Lights up different colors <br>
+		<input type="radio" name="question2" value="C"> Works as a flashlight<br>
+		<input type="radio" name="question2" value="D"> Serves dietary drinks<br>
+	</form><br><br>
+	<p>4. What was the best selling game for PlayStation 2 with over 17 million copies sold?</p>
+	<form>
+		<input type="radio" name="question3" value="A"> Grand Theft Auto: San Andreas <br>
+		<input type="radio" name="question3" value="B"> Guitar Hero 2 <br>
+		<input type="radio" name="question3" value="C"> Final Fantasy X<br>
+		<input type="radio" name="question3" value="D"> Kingdom Hearts<br>
+	</form><br><br>
+	<p>5.Which is the flagship game of Playstation?</p>
+	<form>
+		<input type="radio" name="question4" value="A"> Uncharted 4: A Thief's End <br>
+		<input type="radio" name="question4" value="B"> Fifa <br>
+		<input type="radio" name="question4" value="C"> Project Cars<br>
+		<input type="radio" name="question4" value="D"> WatchDogs<br>
+	</form><br><br>
+	<p><b> Press the button to Evaluate the scores:</b></p>
+	<form><button onclick="validateoption()">View Results</button></form>
+	
+	<footer>
+		<p>QuickQuiz, Copyright &copy; 2017 </p>
+	</footer>
+  </body>
+ </html>
